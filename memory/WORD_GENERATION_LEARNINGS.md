@@ -748,3 +748,38 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   거절) KP 통과율도 0%였다. **다음 원칙 1 적용 시 "보편 금융명사"만
   추려 시도할 것을 권장** — 후보가 고갈되면 원칙 7 계열(단, 3연속
   반증됐으므로 매우 소량·독립 변수로만) 병행을 고려.
+
+### RUN-20260823-155702-KST (2026-08-23, 기능어 5개 — "보편 금융명사"만 추려 시도, "보편적"이라는 예측 자체가 반증됨)
+- **제안**: 직전 라운드 권고를 그대로 실행 — "특정 계좌·기관·세목에 매이지
+  않고 업종 불문 넓게 결합 가능해 보이는" 보편 금융명사만 추려 Discount,
+  Installment, Contribution, Arrears, Advance 5개 제안(모두 word_bank.py/
+  word_bank_expansions.csv 무충돌 확인 완료).
+- **결과**: 신규생성 3,370개, AI승인 2,251개(66.8%, 이번 배치 최고 승인률 —
+  review_titles 단계에서 5개 전부 "결합 범위 넓음"이라는 예측이 그대로
+  들어맞았다), KP통과 **5개** → **통과율 0.15%(직전 0.18% 대비 -16.7%,
+  저하 지속 — 4라운드 연속 저하)**. 단어별: Discount 0.57%(3/526, 최고),
+  Advance 0.22%(1/447), Arrears 0.23%(1/434), **Installment
+  0%(0/510, 즉시 은퇴 확정)**, **Contribution 0%(0/334, 즉시 은퇴
+  확정)** — `analyze_word_performance.py --apply-retirement`로 즉시
+  은퇴 처리함(은퇴 목록 43→45개).
+- **교훈(중요, 직전 원칙 수정 근거)**: review_titles 승인률로 예측한
+  "보편적 결합력"이 KP 통과율과 사실상 무관했다 — Installment/Contribution은
+  review_titles에서 Discount 못지않게 널리 승인됐는데도(예: 청크09에서
+  148/150 승인) KP는 완전히 0%였다. 반면 Discount만 실제로 KP에서 살아남았다.
+  **해석**: "도메인어와 의미적으로 말이 되는가"(review_titles가 검증하는 것)와
+  "실제로 사람들이 그 문구를 검색하는가"(Keyword Planner가 검증하는 것)는
+  서로 다른 축이다 — Installment/Contribution은 "결제 방식/기여 행위"를
+  가리키는 **프로세스 명사**라 문법적으로는 거의 모든 도메인어 뒤에 자연스럽게
+  붙지만, 실제 검색자는 "X Installment"/"X Contribution"이라는 문구 자체를
+  찾지 않는다(대신 "installment plan", "401k contribution" 같은 고정 관용구를
+  찾는다). 반대로 Discount(그리고 원칙 1의 기존 승자 Fee/Cost/Tax/Due/Subsidy)는
+  소비자가 실제로 "[상품] discount"처럼 직접 검색하는 **거래 유인/의무 명사**다.
+  즉 원칙 1을 "보편 금융명사 vs 전문 금융용어"로 나눈 이전 수정도 불충분했다 —
+  **더 정확한 기준은 "그 문구 자체가 실제 검색 쿼리 패턴인가"**로 보인다.
+  이 관측은 원래 `memory/HANDOFF.md`/원칙 3인용에 이미 있던 "Memo는 review_titles
+  승인률 높았지만 KP통과 1/573뿐"이라는 관측과 정확히 같은 방향이며, 이번엔
+  같은 라운드 안에서 정반대 결과(Discount vs Installment/Contribution)가
+  직접 대조돼 더 강한 근거가 됐다. **다음 원칙 1 적용 시 "review_titles
+  승인률이 높을 것 같다"가 아니라 "사람이 실제로 그 두 단어 조합을 검색할
+  법한가"를 1차 기준으로 판단할 것을 권장** — Fee/Cost/Tax/Charge/Due/Subsidy/
+  Discount처럼 광고·리테일·청구서에서 실제로 마주치는 문구인지가 관건이다.
