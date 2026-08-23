@@ -345,6 +345,20 @@ def test_fetch_metrics_429_waits_retry_after_and_retries_once():
     assert 7.0 in waits
 
 
+def test_fetch_metrics_429_exhausts_retries_returns_failed_not_raises():
+    # 2026-08-23: a real sustained-quota run (LINGUIST List keyword check)
+    # got 429 on the inline retry too - the old code fell through to
+    # raise_for_status() on a still-429 response and crashed the whole
+    # fetch_metrics() call uncaught, losing nothing already persisted but
+    # dying mid-run instead of degrading this one batch to "failed" like
+    # every other transient fault.
+    session = FakeSession(generate_responses=[FakeResponse({}, status_code=429)] * 3)
+    client = make_client(session)
+    records = client.fetch_metrics(["Ledger Pilot"])  # must not raise
+    assert records[0].api_status == "failed"
+    assert client.request_count == 1
+
+
 def test_fetch_metrics_budget_exceeded_raises_without_calling_api():
     session = FakeSession(generate_responses=[])
     client = make_client(session, config=ApiRuntimeConfig(batch_size=20, free_tier_budget=0, min_request_interval_ms=0))

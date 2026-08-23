@@ -259,8 +259,22 @@ class KeywordMetricsClient:
                     response = self._post_generate_keyword_ideas(words, token)
 
                 if response.status_code == 429:
-                    self._sleep_fn(_retry_after_seconds(response))
-                    response = self._post_generate_keyword_ideas(words, token)
+                    # 2026-08-23: a real sustained-quota run (LINGUIST List
+                    # keyword check, ~1,087 calls into the day across two
+                    # processes) got 429 on the retry too - the old code only
+                    # retried once inline, then fell through to
+                    # raise_for_status() on a still-429 response, crashing
+                    # the whole fetch_metrics() call uncaught (not just this
+                    # batch) even though every prior batch was already
+                    # persisted. Retry through the same backoff loop as 5xx
+                    # instead of a single inline attempt, so sustained rate
+                    # limiting degrades to per-batch failed records like
+                    # every other transient fault, not a full crash.
+                    if not is_last_attempt:
+                        self._sleep_fn(_retry_after_seconds(response))
+                        continue
+                    self._request_count += 1
+                    return self._failed_records(words)
 
                 if response.status_code >= 500:
                     if not is_last_attempt:
