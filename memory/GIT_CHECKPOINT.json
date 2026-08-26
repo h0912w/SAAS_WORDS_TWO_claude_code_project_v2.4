@@ -1,6 +1,6 @@
 {
-  "status": "COMMITTED_LOCAL",
-  "local_sha": "3ca50c4122ec8cf1f4ffc6a6fdb69e3482a31481",
+  "status": "SENSITIVE_FILES_BLOCKED",
+  "local_sha": null,
   "remote_sha": null,
-  "checked_at": "2026-08-23T16:40:31.814764+09:00"
+  "checked_at": "2026-08-26T22:29:37.064379+09:00"
 }

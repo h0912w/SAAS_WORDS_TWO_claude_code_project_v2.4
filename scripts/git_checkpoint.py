@@ -13,9 +13,22 @@ from saas_words_two.contracts import atomic_write_text
 
 SENSITIVE_PATTERNS = (".env", ".token", ".cookie", "credentials", "secret", "id_rsa", ".pem")
 
+# 실제 비밀값이 없는 템플릿 파일 - basename이 정확히 일치할 때만 예외로 둔다
+# (실측 2026-08-26: ".env" 부분일치 규칙이 .env.example까지 걸러 매 라운드
+# 체크포인트가 SENSITIVE_FILES_BLOCKED로 막혔다).
+ENV_TEMPLATE_ALLOWLIST = frozenset({".env.example", ".env.sample", ".env.template"})
+
 
 def find_sensitive_files(paths: list[str]) -> list[str]:
-    return [path for path in paths if any(pattern in path.lower() for pattern in SENSITIVE_PATTERNS)]
+    flagged = []
+    for path in paths:
+        lower = path.lower()
+        basename = lower.rsplit("/", 1)[-1]
+        if basename in ENV_TEMPLATE_ALLOWLIST:
+            continue
+        if any(pattern in lower for pattern in SENSITIVE_PATTERNS):
+            flagged.append(path)
+    return flagged
 
 
 def run_git(project_root: Path, *args: str) -> subprocess.CompletedProcess:

@@ -16,6 +16,7 @@ canonical_documents:
   state_memory: docs/operations/11-workflow-state-memory.md
   git_recovery: docs/operations/12-git-and-recovery.md
   qa_acceptance: docs/qa/13-qa-and-acceptance.md
+  google_ads_credential_setup: docs/operations/15-google-ads-credential-setup.md
   roadmap: docs/implementation/14-implementation-roadmap.md
   source_design: docs/design/source/claude_code_saas_high_demand_low_supply_two_word_design_v2.4.md
   deprecated_demand_supply: docs/design/DEPRECATED_DEMAND_SUPPLY.md

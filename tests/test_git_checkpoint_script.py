@@ -20,6 +20,13 @@ def test_find_sensitive_files_flags_known_patterns():
     assert "secrets/api.token" in flagged
 
 
+def test_find_sensitive_files_allows_env_example_template():
+    flagged = script.find_sensitive_files([".env.example", ".env.local", "config/.env.sample"])
+    assert ".env.example" not in flagged
+    assert "config/.env.sample" not in flagged
+    assert ".env.local" in flagged
+
+
 def test_commit_batch_creates_local_commit(tmp_path):
     init_repo(tmp_path)
     (tmp_path / "file.txt").write_text("hello", encoding="utf-8")

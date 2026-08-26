@@ -1,7 +1,7 @@
 # 단어 성과 리포트 (자동 생성)
 
-- 생성 시각: 2026-08-23T16:40:44.871508+09:00
-- 누적 통과율: 1233/121764 = 1.01%
+- 생성 시각: 2026-08-26T22:29:35.291981+09:00
+- 누적 통과율: 1233/121809 = 1.01%
 - 은퇴 기능어: 45개 (`config/retired_function_words.csv`)
 
 ## 기능어 통과율 상위 (시도 100회 이상)
@@ -43,11 +43,11 @@ Almanac, Anchor, Blueprint, Book, Catalog, Checklist, Cockpit, Codex, Compendium
 | Chat | 12 | 191 | 6.28% |
 | Family | 12 | 196 | 6.12% |
 | Conversion | 11 | 183 | 6.01% |
-| Service | 12 | 204 | 5.88% |
+| Service | 12 | 207 | 5.80% |
 | Closing | 10 | 178 | 5.62% |
-| Payment | 11 | 199 | 5.53% |
 | Class | 11 | 200 | 5.50% |
 | Fuel | 11 | 200 | 5.50% |
+| Payment | 11 | 201 | 5.47% |
 | Reference | 10 | 189 | 5.29% |
 | Salary | 9 | 173 | 5.20% |
 | Smoke | 9 | 173 | 5.20% |
