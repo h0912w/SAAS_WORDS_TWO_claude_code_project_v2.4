@@ -1,10 +1,17 @@
 # HANDOFF
 
 - 상태: `PAUSED` (Google 계정 보안 잠금으로 API 인증 일시 불가 — 코드/판정 문제 아님)
+- **이번 세션 결론 요약**: 자격증명 교체는 완료·검증됐고, QA 라운드는 끝까지
+  성공했다. 이어서 돌린 production 라운드는 **"생성+AI판정"까지만 끝나고
+  "Keyword Planner 통과 확정"은 미완료** — 즉 이번 세션 목표(자격증명 교체 →
+  QA → 단어생성 1라운드) 중 마지막 한 조각(라운드 최종 완주)이 Google 계정
+  보안 잠금 때문에 못 끝났다. 코드/판정 로직 문제 아님, 순수 외부 인증 이슈.
 - 현재 단계: run RUN-20260826-235551-KST(mode=production)가 `generate_and_review_titles`
   단계에서 `FAILED` — 제목 생성·AI 판정(3,320개 생성, 2,250 승인/1,070 거절)은
-  이미 ledger(`output/deliverables/history/generated_candidates.csv`)에 정상 기록됨.
-  실패 지점은 그 다음 Keyword Planner 조회 직전 OAuth 토큰 갱신(`invalid_grant`)이었음.
+  이미 ledger(`output/deliverables/history/generated_candidates.csv`)에 정상 기록되고
+  git에도 커밋+푸시됨(`9281f9a`). 실패 지점은 그 다음 Keyword Planner 조회 직전
+  OAuth 토큰 갱신(`invalid_grant`)이었음 — **문서②③④(KP 통과표/단어리스트)는
+  아직 이번 라운드분 갱신 안 됨, 최종 산출물 없음.**
 - 마지막으로 성공 완료된 실행: QA-20260826-222651-KST (mode=qa, DONE, 커밋+푸시 완료)
 
 ## 지금 막힌 지점 (2026-08-27 새벽)
