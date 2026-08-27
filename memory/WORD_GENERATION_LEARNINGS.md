@@ -316,6 +316,20 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
     Alert류는 이미 시도됨 — 겹치지 않는 새 인접어를 찾을 것)를 우선
     탐색할 것을 권장.**
 
+12. `candidate` (2026-08-27, RUN-20260827-231830-KST — 이 문서 최초
+    관측, Calculator가 즉시 전체 4위 진입)
+    **"실제 계산 결과를 알려주는 도구" 명사(Calculator)가 강한 기능어
+    후보다.** 등장 즉시 역대 4위(6.35%, Number의 6.75%에 근접)를
+    기록했다 — "mortgage calculator"/"tax calculator"처럼 이미
+    전 세계적으로 일상화된 검색 관용구와 정확히 일치하는 것으로
+    보인다. 다만 같은 "-or/-er 도구" 표면형인 Converter(2.17%)·
+    Generator(0.71%)·Recorder(0.22%)는 훨씬 저조했다 — 표면형이
+    아니라 "그 도구가 실제로 무엇을 하는가"(계산해서 숫자를 알려줌 vs
+    형식을 바꿔줌 vs 무언가를 만들어냄 vs 기록을 남김)가 성패를
+    가른다. **승격 조건**: Calculator의 인접어(예: Estimator류 —
+    표면형이 너무 가깝지 않게)를 다른 라운드에서 독립 시도해 상위권을
+    재현하면 `validated`.
+
 ## 라운드별 로그
 
 ### RUN-20260819-201533-KST (2026-08-19, 도메인어 22 + 기능어 재사용 10)
@@ -1097,3 +1111,41 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   다른 4개보다 훨씬 작아(239 vs 500+) 통계 신뢰도가 낮다. 실물 보관
   가구 계열(Cabinet)은 이번 결과만으로 폐기하지 않되(0%지만 표본
   부족), 우선순위를 낮춘다.
+
+### RUN-20260827-231830-KST (2026-08-27, 기능어 5개 — "실용 도구" 계열, Calculator가 즉시 전체 4위 진입)
+
+- **제안**: 원칙 11(소통 계열)의 인접어 1개(Announcement)와, "실제로
+  유용한 구체적 도구" 계열 4개(Calculator/Converter/Generator/
+  Recorder — 전부 "-or/-er, 무언가를 하는 도구" 형태지만 서로 다른
+  기능을 가리켜 동의어는 아님) 제안. 전체 풀·은퇴 목록 무충돌 확인
+  완료.
+- **결과**: 신규생성 3,370개, AI승인 1,544개(승인률 45.8%,
+  review_titles가 이번엔 특히 엄격했다 — 물리적 발전기·부품과의
+  혼동(Fuel/Grid/Chiller/Boiler Generator 등), 실제 하드웨어/제품
+  범주 충돌(Flight Recorder=항공기 블랙박스, Chlorine Generator=
+  실제 수영장 장비, Invoice Generator=이미 존재하는 실제 SaaS
+  카테고리, Markdown Converter/Generator=마크업 언어), 심지어
+  "위조 문서를 만드는 도구"로 읽히는 조합(Prescription/Vaccination/
+  Citcitation Generator류)까지 적극적으로 거절), KP통과 **32개** →
+  **통과율 0.95%(직전 1.01% 대비 -5.9%, 임계값 이내라 `stagnant`)**.
+  단어별: **Calculator 6.35%(25/394) — 즉시 전체 기능어 역대 4위
+  진입(Number의 6.75%에 근접, Portal의 5.82%를 앞지름)**, Converter
+  2.17%(3/138, 표본 작음), Generator 0.71%(2/281), Announcement
+  0.36%(1/275), Recorder 0.22%(1/456).
+- **핵심 발견(신규 원칙 12 후보)**: "실제로 계산을 수행해 사람들이
+  검색하는 구체적 결과를 주는 도구" 명사(Calculator)가 강력하다 —
+  "mortgage calculator", "tax calculator"처럼 이미 전 세계적으로
+  일상화된 검색 관용구 패턴과 정확히 일치한다(원칙 1의 "실제 검색
+  쿼리" 기준과 원칙 7의 "범용 결합력" 기준이 모두 들어맞는 사례,
+  Diagram/Message와 같은 패턴). 반면 같은 "-or/-er 도구" 표면형이라도
+  Converter/Generator/Recorder는 훨씬 저조했다 — Generator는 실제
+  물리적 발전기·위조 도구 연상 때문에 review_titles 단계에서부터
+  대거 걸러졌고(승인된 것도 KP성과 저조), Recorder는 "기록 장치"라는
+  뜻이 앞서 성공한 Log/History/File(정보 기록)과 결이 비슷해 보였지만
+  실측은 그와 다르게 나왔다. **다음 라운드 권장**: Calculator류
+  ("계산 결과를 알려주는 도구")를 원칙 12 후보로 기록 — 인접어
+  (예: Estimator류, 단 표면형이 너무 가깝지 않은 것) 재시도로
+  독립 검증할 것. Announcement는 이번에도 저조(0.36%)해 원칙 11
+  안에서도 Notification/Message보다 확실히 약한 하위 유형임이
+  재확인됐다(2회 관측: 이전 없음, 이번 1회뿐이라 원칙 11을 깎지는
+  않되 "Announcement류는 후순위" 참고사항으로 남김).
