@@ -3,6 +3,23 @@
 - 상태: `PAUSED` (h0912ww 계정 잠금은 풀림·자격증명 검증 완료, `RUN-20260826-235551-KST`
   --resume은 아직 미실행 — 다음 세션이 이어서 할 일)
 
+## 2026-08-27 갱신 — Termius SSH 세션 git push 정상화 (SSH 키 인증 적용)
+
+Termius로 임의 단어(`sunset`/`harbor`) Keyword Planner 조회를 실제 API로 재검증
+(둘 다 `api_status=success`, 검색량·경쟁지수 정상 반환 — 기존 검증과 일관됨,
+추가 조치 불필요). 이어서 이 세션에서 `git push`를 시험해보니 실패
+(`wincredman` 자격증명 저장소가 비대화형 SSH 세션에서 프롬프트를 못 띄움,
+`origin`이 아직 HTTPS였고 `~/.ssh/`도 없어 `docs/operations/
+14-remote-ssh-github-authentication.md`가 실제로는 한 번도 적용 안 된 상태였음
+확인) → 문서 14 절차 그대로 실행: SSH 키 신규 생성 → 사용자가 GitHub에 공개키
+등록 → `ssh -T git@github.com` 인증 성공 확인 → `origin`을 SSH URL로 전환 →
+`git push` 정상 동작 확인(인증 프롬프트 없음). 상세는 `memory/ACTIVE_ISSUES.md`
+`PROCESS-001`의 "2026-08-27 해결" 절 참고 — 이제 Termius 세션에서도 push가
+PC 세션까지 미룰 필요 없이 정상 동작한다.
+
+**다음 세션이 할 일**: 아래 "다음 세션이 할 일" 절(`RUN-20260826-235551-KST`
+--resume)이 여전히 최우선 순위다 — 이번 갱신은 그 작업과 무관한 별도 확인.
+
 ## 2026-08-27 갱신 — h0912ww 계정 잠금 해제 확인, 자격증명 정상 작동 검증
 
 사용자가 h0912ww 계정 잠금이 풀렸다고 확인해줘서, 기존 `.env.local`(h0912ww
