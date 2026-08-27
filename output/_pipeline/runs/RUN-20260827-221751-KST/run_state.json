@@ -3399,7 +3399,7 @@
   "created_at": "2026-08-27T22:17:51.632585+09:00",
   "mode": "production",
   "run_id": "RUN-20260827-221751-KST",
-  "stage": "generate_and_review_titles",
-  "status": "RUNNING",
-  "updated_at": "2026-08-27T22:29:36.885903+09:00"
+  "stage": "update_memory_and_git_checkpoint",
+  "status": "DONE",
+  "updated_at": "2026-08-27T22:29:45.337462+09:00"
 }
