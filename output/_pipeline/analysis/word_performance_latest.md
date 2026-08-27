@@ -1,7 +1,7 @@
 # 단어 성과 리포트 (자동 생성)
 
-- 생성 시각: 2026-08-27T23:37:20.041772+09:00
-- 누적 통과율: 1373/135792 = 1.01%
+- 생성 시각: 2026-08-27T23:59:36.237442+09:00
+- 누적 통과율: 1392/138780 = 1.00%
 - 은퇴 기능어: 55개 (`config/retired_function_words.csv`)
 
 ## 기능어 통과율 상위 (시도 100회 이상)
@@ -31,32 +31,32 @@
 
 ## 은퇴 대상(통과 0 / 시도 300회 이상)
 
-Almanac, Anchor, Blueprint, Book, Cashback, Catalog, Checklist, Cockpit, Codex, Compendium, Contribution, Coupon, Dashboard, Deal, Depot, Dial, Digest, Dock, Dossier, Downpayment, Excerpt, Flag, Giveaway, Grade, Guard, Guidebook, Helpdesk, Hotline, Incentive, Insight, Installment, Lens, Lock, Meter, Metrics, Navigator, Node, Organizer, Overage, Overdue, Payoff, Pilot, Profit, Pulse, Queue, Roadmap, Sentry, Shortfall, Snapshot, Suite, Sync, Tally, Toll, Toolkit, Workbench
+Almanac, Analyzer, Anchor, Blueprint, Book, Cashback, Catalog, Checklist, Cockpit, Codex, Compendium, Contribution, Coupon, Dashboard, Deal, Depot, Dial, Digest, Dock, Dossier, Downpayment, Excerpt, Flag, Giveaway, Grade, Guard, Guidebook, Helpdesk, Hotline, Incentive, Insight, Installment, Lens, Lock, Meter, Metrics, Navigator, Node, Organizer, Overage, Overdue, Payoff, Pilot, Profit, Pulse, Queue, Roadmap, Scanner, Sentry, Shortfall, Snapshot, Suite, Sync, Tally, Toll, Toolkit, Workbench
 
 ## 도메인어 통과율 상위 (시도 30회 이상)
 
 | 도메인어 | 통과 | 시도 | 통과율 |
 |---|---|---|---|
-| Transfer | 16 | 194 | 8.25% |
-| License | 15 | 197 | 7.61% |
-| Chat | 13 | 207 | 6.28% |
-| Union | 12 | 194 | 6.19% |
-| Family | 13 | 214 | 6.07% |
-| Ratio | 11 | 187 | 5.88% |
-| Payment | 13 | 222 | 5.86% |
-| Conversion | 12 | 208 | 5.77% |
-| Service | 12 | 217 | 5.53% |
-| Fuel | 12 | 225 | 5.33% |
-| Grading | 11 | 209 | 5.26% |
-| Closing | 10 | 191 | 5.24% |
-| Salary | 10 | 195 | 5.13% |
-| Class | 11 | 226 | 4.87% |
-| Membership | 11 | 228 | 4.82% |
-| Reference | 10 | 213 | 4.69% |
-| Smoke | 9 | 197 | 4.57% |
-| Opening | 9 | 200 | 4.50% |
-| Chart | 9 | 201 | 4.48% |
-| Return | 10 | 225 | 4.44% |
+| Transfer | 16 | 199 | 8.04% |
+| License | 16 | 202 | 7.92% |
+| Chat | 13 | 211 | 6.16% |
+| Fuel | 14 | 230 | 6.09% |
+| Family | 13 | 215 | 6.05% |
+| Union | 12 | 199 | 6.03% |
+| Ratio | 11 | 192 | 5.73% |
+| Payment | 13 | 227 | 5.73% |
+| Conversion | 12 | 212 | 5.66% |
+| Grading | 12 | 214 | 5.61% |
+| Service | 12 | 222 | 5.41% |
+| Closing | 10 | 195 | 5.13% |
+| Salary | 10 | 200 | 5.00% |
+| Class | 11 | 228 | 4.82% |
+| Return | 11 | 230 | 4.78% |
+| Billing | 11 | 231 | 4.76% |
+| Membership | 11 | 232 | 4.74% |
+| Reference | 10 | 217 | 4.61% |
+| Smoke | 9 | 199 | 4.52% |
+| Opening | 9 | 204 | 4.41% |
 
 > 해석 가이드: 새 기능어를 제안할 때는 상위 표의 패턴(실제 검색되는 구체적
 > 명사)을 닮게, 은퇴 목록의 패턴(전문용어풍 합성어)은 피한다. Keyword
