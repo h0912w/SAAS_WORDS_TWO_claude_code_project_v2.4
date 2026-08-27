@@ -1,6 +1,12 @@
 {
   "awaiting_judgment": null,
   "context": {
+    "approved": [
+      {
+        "industry": "moving_relocation_services",
+        "title": "Truck Trial"
+      }
+    ],
     "backlog": [],
     "candidate_industry": {
       "Access Cashback": "cybersecurity",
@@ -3323,12 +3329,18 @@
       "Zoning Giveaway": "government",
       "Zoning Incentive": "government",
       "Zoning Trial": "government"
+    },
+    "round_stats": {
+      "ai_approved": 2250,
+      "backlog_carried": 0,
+      "generated": 3320,
+      "kp_passed": 1
     }
   },
   "created_at": "2026-08-26T23:55:51.922958+09:00",
   "mode": "production",
   "run_id": "RUN-20260826-235551-KST",
   "stage": "generate_and_review_titles",
-  "status": "FAILED",
-  "updated_at": "2026-08-27T00:02:28.981871+09:00"
+  "status": "RUNNING",
+  "updated_at": "2026-08-27T21:20:05.827398+09:00"
 }
