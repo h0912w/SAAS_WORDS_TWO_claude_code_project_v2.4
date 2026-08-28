@@ -329,6 +329,34 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
     가른다. **승격 조건**: Calculator의 인접어(예: Estimator류 —
     표면형이 너무 가깝지 않게)를 다른 라운드에서 독립 시도해 상위권을
     재현하면 `validated`.
+    **2026-08-28 약한 추가 관측(RUN-20260828-202233-KST, 승격에는 못
+    미침)**: "산출값을 알려주는" 인접 개념으로 Forecast를 시험 — 이번
+    라운드 신규 기능어 10개 중 최고 성적(0.89%, 340여회 시도)이었으나
+    Calculator(6.35%)에는 크게 못 미친다. 방향은 일치하지만 강도가
+    약해 원칙 12의 직접 증거로 쓰기엔 부족 — `candidate` 유지, 승격
+    보류.
+
+13. `candidate` (2026-08-28, RUN-20260828-202233-KST — 이 문서 최초
+    관측, 도메인어 축에서 처음으로 "업계 내부자 전문용어 vs 일상어"를
+    독립 변수처럼 관측)
+    **이미 검증된(니치가 아닌) 업계라도, 그 업계 "내부자만 쓰는
+    전문용어"를 도메인어로 확장하면 일상적으로도 흔히 쓰이는 단어보다
+    훨씬 저조하다.** logistics(이미 기존 도메인어 13개가 있던 업계)에
+    새 도메인어 21개를 추가했는데, 그중 업무 절차 전문용어(Waybill/
+    Consignment/Consignee/Shipper/Forwarder/Trailer/Chassis/Payload/
+    Unloading/Weighbridge/Backhaul/Intermodal/Crossdock/Drayage/
+    Consolidation/Bulk/Reefer/Flatbed, 18개)는 각 100회 이상 시도에
+    **전부 0%**였던 반면, 상대적으로 일상 어휘에 가까운 3개(Loading
+    2.68%, Lane 1.79%, Tanker 0.86%)만 통과가 나왔다. 원칙 2("니치
+    업계로 확장은 위험")가 "업계 단위" 판단이었다면, 이번 관측은 같은
+    논리가 "업계 안의 개별 단어 단위"에도 적용됨을 시사한다 — 업계
+    자체가 흔해도 그 업계 실무자만 아는 전문 용어(통관·물류 업무
+    절차 용어 등)는 일반 대중의 글로벌 검색량이 거의 없을 가능성이
+    높다. **단, 이번 라운드는 기능어 10개도 동시에 바꾼 대형 교란
+    라운드라 완전히 독립적인 관측은 아니다.** **승격 조건**: 다른
+    업계에서 기능어는 고정한 채 "일상어 도메인어 vs 업계 내부자
+    전문용어 도메인어"만 독립 변수로 다시 시험해 같은 방향이
+    재현되면 `validated`.
 
 ## 라운드별 로그
 
@@ -1282,3 +1310,59 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   신규 발견 "컨테이너·요약형 실패 패턴"(원칙화 보류, 다음 세션이
   검토), 은퇴 기능어 순증 13개(49→62개). 다음 세션은 이 문서의
   "핵심 원칙" 섹션 전체와 이 라운드 로그부터 먼저 읽고 이어갈 것.
+
+### RUN-20260828-202233-KST (2026-08-28, 사용자 지시로 "중단할 때까지 무한 반복"
+재개 — round-size 10000, 기능어 10개+logistics 도메인어 21개 동시 확장,
+지금까지 이 문서에서 가장 큰 단일 라운드)
+
+- **배경**: 새 세션이 사용자의 "중단 지시 전까지 무한 반복" 요청으로
+  `/loop` 다이나믹 모드를 걸고 production 라운드를 시작했는데, 라운드 1
+  즉시 단어뱅크가 소진돼 `expand_word_bank`가 열렸다.
+- **제안**: 기능어 10개 — 서로 다른 축을 동시에 시험(교란 있음, 라운드
+  전체 수치보다 단어별 수치를 근거로 쓸 것): Reference(원칙 7 구체적
+  식별 대상 세 번째 검증), Forecast(원칙 12 계산도구 인접 검증),
+  Deadline/Duration(시간 마커), Volume/Progress(측정·진행 상태),
+  Threshold/Benchmark/Diagnostic(한계·평가 추상명사), Authorization
+  (허가 마커). 도메인어는 logistics(기존 13개) 업계에 21개 추가 —
+  일상어(Loading/Lane/Tanker/Bulk 등)와 업계 내부 전문용어(Waybill/
+  Consignee/Consolidation/Drayage/Crossdock/Intermodal/Backhaul/
+  Weighbridge/Reefer/Flatbed 등)가 섞여 있었다.
+- **결과**: 신규생성 10,000개, AI승인 9,564개(승인률 95.6%), KP통과
+  **36개** → **통과율 0.36%(직전 0.33% 대비 +10.3%, `improving`
+  임계값 경계)**. 기능어별: **Forecast 0.89%(최고)**, Reference/
+  Authorization 0.59%, Volume/Progress 0.56%, Deadline 0.30%, Duration
+  0.29%, **Threshold 0%(357회)·Benchmark 0%(358회) — 즉시 은퇴 확정**
+  (`--apply-retirement`, 은퇴 목록 62→64개), Diagnostic 0%(349회, 은퇴
+  임계값 근접이나 이번 실행에서는 미확정). 도메인어별(logistics 신규
+  21개): **Loading 2.68%·Lane 1.79%·Tanker 0.86%만 통과**, 나머지 18개
+  (Waybill/Consignment/Consignee/Shipper/Forwarder/Trailer/Chassis/
+  Payload/Unloading/Weighbridge/Backhaul/Intermodal/Crossdock/Drayage/
+  Consolidation/Bulk/Reefer/Flatbed) 전부 0%(각 100회 이상 시도).
+- **교훈**:
+  1. 원칙 7의 세 번째 독립 시도(Reference)가 다시 약체(0.59%)로 나와
+     "의미 카테고리 기반 추론의 예측력이 낮다"는 기존 메타 관측을
+     재확인했다.
+  2. Threshold/Benchmark/Diagnostic(한계·평가 추상명사) 전멸은 기존
+     Category/Attribute/Field 실패군과 같은 방향 — 원칙 7의 "추상
+     분류/평가 용어는 약하다"는 하위 구분이 세 번째로 재확인됨.
+  3. Deadline/Duration 저조는 "Due"(원칙 1)의 성공을 시간 개념
+     일반으로 확대 해석하면 안 된다는 반례로 기록.
+  4. Forecast(0.89%, 이번 라운드 최고)는 원칙 12(계산도구) 방향과
+     일치하지만 강도가 약해 승격 증거로는 부족 — 위 "핵심 원칙" 12번
+     항목에 약한 추가 관측으로만 반영.
+  5. **신규**: logistics 도메인어 확장에서 일상어(Loading/Lane/Tanker)
+     3개만 통과하고 업계 전문용어 18개는 전멸 — "핵심 원칙" 13번
+     항목으로 신규 기록(`candidate`).
+  6. **운영 교훈(단어 선정과 무관, 대규모 review_titles 처리 방식)**:
+     10,000개 판정을 1,000개씩 10개 청크로 나눠 서브에이전트 10개에
+     병렬 위임했는데, 청크별 거절률이 1.6%~30%로 크게 벌어졌다. 30%
+     거절 청크(chunk_06)를 표본 검사한 결과, 절반(155/300)이 지시한
+     3개 기준(명확성/의미중복/상표유사)에 없는 "너무 막연/일반적"이라는
+     자체 기준으로 거절된 것이었다 — 이는 오히려 이 문서의 검증된
+     결론(원칙 7/11 "범용 결합력이 이긴다")과 정면 모순된다. 병합 전
+     청크별 거절률을 비교해 이상치를 발견하고, 해당 155건 전부를
+     재승인으로 정정한 뒤 최종 응답(9,403→9,564 승인)을 작성했다.
+     **다음 세션 참고**: 대규모 review_titles를 여러 서브에이전트로
+     쪼갤 때는 병합 전에 반드시 청크별 거절률을 비교하고, 지시된 기준
+     밖의 자체 기준(막연함·일반성 등)을 이유로 든 거절이 섞여 있지
+     않은지 검사할 것.
