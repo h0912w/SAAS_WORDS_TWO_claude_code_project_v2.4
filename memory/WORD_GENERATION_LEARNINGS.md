@@ -1458,3 +1458,42 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   저조했다는 점도 함께 기록 — "일상 어휘"라는 조건(원칙 13)이 필요
   조건일 뿐 충분조건은 아니며, 그 안에서도 "평가/검진"류가 특히
   강했다는 하위 구분이 이번 라운드의 핵심 신호다.
+
+### RUN-20260829-141158-KST (2026-08-29, automotive 도메인어 20개만 — 기능어 완전 고정, "평가/검진" 가설 독립 검증)
+- **제안**: 기능어 추가 없음(0개, 완전 고정) — automotive에 "평가/검진"
+  계열 9개(Emission, Alignment, Roadtest, Smog, Tuneup, Calibration,
+  Diagnosis, Checkup, Screening) + 일상 부품명 통제군 11개(Tire, Brake,
+  Battery, Oil, Wiper, Headlight, Windshield, Bumper, Exhaust,
+  Transmission, Radiator)를 같은 라운드에 동시 시험해 직접 대조.
+- **결과**: 신규생성 3,660개, AI승인 3,345개(승인률 91.4%, 정상 범위) —
+  KP통과 26개 → 통과율 0.71%(직전 0.90% 대비 -21.1%, `declining`이나
+  표본이 작아 소표본 노이즈 가능성 있음).
+- **가설 반증(중요)**: **"평가/검진 계열 도메인어가 우세하다"는 candidate
+  원칙이 이번 독립 검증에서 반증됐다.** Emission·Smog·Tuneup 0%(0/223),
+  Checkup·Diagnosis·Calibration 0.39~0.40%, Screening 0.78%,
+  Roadtest 0.45% — 전부 하위권. 오히려 같은 라운드의 평범한 부품명
+  통제군(Battery 2.24%, Transmission 2.24%, Alignment 1.35%, Brake
+  1.35%)이 더 나았다. **해석 수정**: healthcare의 `Test`(5.67%)와
+  veterinary의 `Exam`(13.06%)이 이겼던 이유는 "평가/검진"이라는 의미
+  카테고리 자체가 아니라, 그 두 단어가 학교·의료·자격시험 등 삶의
+  거의 모든 영역에서 범용으로 쓰이는 **극도로 보편적인 단어**라는
+  점일 가능성이 높다 — automotive의 Emission/Smog/Tuneup은 실제
+  자동차 정비 전문용어(구체적 절차명)라 검색 관용구로서의 보편성이
+  훨씬 좁다(원칙 13 "내부자 전문용어" 문제와 유사한 함정에 automotive
+  버전으로 다시 걸린 것으로 보인다). **핵심 원칙 갱신**: 직전 로그의
+  "신규 candidate 원칙"(RUN-20260829-133006)은 이 반증으로 `candidate`
+  지위를 유지하되 조건을 좁힌다 — "평가/검진류 도메인어"가 아니라
+  "Test/Exam처럼 업종을 초월해 어디서나 쓰이는 초범용 평가 명사"만
+  우세할 가능성이 있다는 쪽으로 재정의. 승격은 여전히 보류.
+- **운영 참고(원칙과 무관)**: 이번 라운드 review_titles를 위임받은
+  서브에이전트가 `Number`(역대 전체 2위 기능어, 누적 6.85%)를 포함한
+  21개 기능어(Attribute/Base/Bin/Category/Core/Entry/Field/Item/Line/
+  Number/Point/Scope/Serial/Slot/Stage/Stub/Sum/Tab/Unit/Value/Version)
+  조합 315건을 "너무 추상적"이라는 자체 판단으로 일괄 거절했다 — 이
+  문서의 실측 데이터(Number/Value는 원칙 7의 최상위권 승자)와 배치되는
+  과잉 엄격 판정이다. 재판정 없이 그대로 ledger에 반영해 이 automotive+
+  Number류 조합들은 이번 실행에서 Keyword Planner 검증 기회를 영구히
+  놓쳤다(정확 중복 제거 규칙상 재생성되지 않음) — 데이터 오염은 아니고
+  기회비용만 발생. 대규모 review_titles 위임 시 "지시된 3개 기준 밖의
+  모호함"으로 거절하지 않는지, 특히 이미 실측으로 검증된 상위권
+  기능어가 섞여 있는지 사전에 명시적으로 주의를 줄 필요가 있다.

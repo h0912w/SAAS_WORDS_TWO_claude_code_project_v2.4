@@ -3781,7 +3781,7 @@
   "created_at": "2026-08-29T14:11:58.828275+09:00",
   "mode": "production",
   "run_id": "RUN-20260829-141158-KST",
-  "stage": "generate_and_review_titles",
-  "status": "RUNNING",
-  "updated_at": "2026-08-29T14:27:17.353152+09:00"
+  "stage": "update_memory_and_git_checkpoint",
+  "status": "DONE",
+  "updated_at": "2026-08-29T14:27:25.724775+09:00"
 }
