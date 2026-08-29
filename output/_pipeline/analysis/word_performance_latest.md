@@ -1,37 +1,37 @@
 # 단어 성과 리포트 (자동 생성)
 
-- 생성 시각: 2026-08-29T16:30:53.571311+09:00
-- 누적 통과율: 1905/203015 = 0.94%
+- 생성 시각: 2026-08-29T16:55:16.272331+09:00
+- 누적 통과율: 2012/207602 = 0.97%
 - 은퇴 기능어: 72개 (`config/retired_function_words.csv`)
 
 ## 기능어 통과율 상위 (시도 100회 이상)
 
 | 기능어 | 통과 | 시도 | 통과율 |
 |---|---|---|---|
-| Diagram | 45 | 586 | 7.68% |
-| Code | 57 | 842 | 6.77% |
-| Number | 55 | 829 | 6.63% |
-| Portal | 50 | 849 | 5.89% |
-| Status | 45 | 851 | 5.29% |
-| Calculator | 29 | 573 | 5.06% |
-| List | 42 | 847 | 4.96% |
-| Map | 40 | 834 | 4.80% |
-| Result | 22 | 487 | 4.52% |
-| Rate | 37 | 832 | 4.45% |
-| Fee | 36 | 850 | 4.24% |
-| Message | 30 | 713 | 4.21% |
-| Log | 28 | 844 | 3.32% |
-| Check | 27 | 845 | 3.20% |
-| Chart | 13 | 429 | 3.03% |
-| Score | 25 | 841 | 2.97% |
-| Note | 25 | 842 | 2.97% |
-| Update | 24 | 849 | 2.83% |
-| History | 24 | 851 | 2.82% |
-| Card | 23 | 836 | 2.75% |
+| Diagram | 47 | 605 | 7.77% |
+| Code | 58 | 861 | 6.74% |
+| Number | 57 | 848 | 6.72% |
+| Portal | 52 | 868 | 5.99% |
+| Status | 46 | 870 | 5.29% |
+| Map | 43 | 853 | 5.04% |
+| List | 43 | 866 | 4.97% |
+| Calculator | 29 | 592 | 4.90% |
+| Result | 24 | 506 | 4.74% |
+| Rate | 38 | 851 | 4.47% |
+| Fee | 36 | 869 | 4.14% |
+| Message | 30 | 732 | 4.10% |
+| Chart | 16 | 448 | 3.57% |
+| Log | 29 | 863 | 3.36% |
+| Check | 27 | 864 | 3.12% |
+| Score | 26 | 860 | 3.02% |
+| Note | 26 | 861 | 3.02% |
+| Update | 26 | 868 | 3.00% |
+| History | 25 | 870 | 2.87% |
+| Card | 23 | 855 | 2.69% |
 
 ## 은퇴 대상(통과 0 / 시도 300회 이상)
 
-Almanac, Analyzer, Anchor, Benchmark, Blueprint, Book, Cabinet, Cashback, Catalog, Checklist, Cockpit, Codex, Compendium, Contribution, Coupon, Dashboard, Deal, Depot, Dial, Digest, Dock, Dossier, Downpayment, Excerpt, Flag, Folder, Giveaway, Grade, Guard, Guidebook, Helpdesk, Hotline, Inbox, Incentive, Insight, Installment, Lens, Lock, Locker, Meter, Metrics, Navigator, Node, Organizer, Overage, Overdraft, Overdue, Overview, Payoff, Pilot, Poll, Preview, Profit, Pulse, Queue, Roadmap, Scanner, Sentry, Shortfall, Snapshot, Stamp, Stipend, Suite, Surtax, Sync, Tally, Threshold, Tier, Toll, Toolbox, Toolkit, Workbench
+Almanac, Analyzer, Anchor, Benchmark, Blueprint, Book, Cabinet, Cashback, Catalog, Checklist, Cockpit, Codex, Compendium, Contribution, Coupon, Dashboard, Deal, Depot, Dial, Digest, Dock, Dossier, Downpayment, Excerpt, Flag, Folder, Giveaway, Grade, Guard, Guidebook, Helpdesk, Hotline, Inbox, Incentive, Insight, Installment, Lens, Lock, Locker, Meter, Metrics, Navigator, Node, Organizer, Overage, Overdraft, Overdue, Overview, Payoff, Pilot, Poll, Preview, Profit, Pulse, Queue, Roadmap, Scanner, Sentry, Shelf, Shortfall, Snapshot, Stamp, Stipend, Suite, Surtax, Sync, Tally, Threshold, Tier, Toll, Toolbox, Toolkit, Tower, Wallet, Workbench, Yard
 
 ## 도메인어 통과율 상위 (시도 30회 이상)
 
@@ -41,6 +41,7 @@ Almanac, Analyzer, Anchor, Benchmark, Blueprint, Book, Cabinet, Cashback, Catalo
 | Background | 21 | 233 | 9.01% |
 | Transfer | 18 | 233 | 7.73% |
 | License | 16 | 235 | 6.81% |
+| Video | 16 | 242 | 6.61% |
 | Closing | 14 | 226 | 6.19% |
 | Conversion | 15 | 246 | 6.10% |
 | Test | 15 | 251 | 5.98% |
@@ -50,13 +51,12 @@ Almanac, Analyzer, Anchor, Benchmark, Blueprint, Book, Cabinet, Cashback, Catalo
 | Ratio | 12 | 217 | 5.53% |
 | Service | 14 | 254 | 5.51% |
 | Chat | 13 | 240 | 5.42% |
+| Photo | 13 | 241 | 5.39% |
+| Story | 13 | 241 | 5.39% |
 | Fuel | 14 | 262 | 5.34% |
 | Payment | 14 | 262 | 5.34% |
 | Council | 13 | 244 | 5.33% |
 | Hospital | 13 | 251 | 5.18% |
-| Public | 10 | 216 | 4.63% |
-| Class | 12 | 260 | 4.62% |
-| Reference | 11 | 243 | 4.53% |
 
 > 해석 가이드: 새 기능어를 제안할 때는 상위 표의 패턴(실제 검색되는 구체적
 > 명사)을 닮게, 은퇴 목록의 패턴(전문용어풍 합성어)은 피한다. Keyword
