@@ -1576,3 +1576,13 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   Notice/Complaint)로 반복 확인했고 반례가 없어 `validated`로 승격한다.
   신규 events 전용 단어들은 평범(Speaker/Parking/Swag 1.6~1.7%대,
   Afterparty/Keynote/Lanyard/Seating/Signage 0%).
+
+### RUN-20260829-161704-KST (2026-08-29, government 도메인어 20개 — 신규 + Complaint/Notice 재사용)
+- **결과**: 신규생성 2,440개, AI승인 2,412개(98.9%), KP통과 30개 →
+  통과율 1.23%(직전 0.82% 대비 +50.0%, `improving`).
+- **핵심**: `Council` 5.33%(13/244) — 신규 상위권. `Public` 4.63%
+  (10/216)도 강세(review_titles에서 "너무 추상적"이라 일부 조합만
+  거절됐지만 통과된 나머지는 상위권 — 도메인어는 다소 넓은 개념이어도
+  Keyword Planner 실측 통과에는 문제없었다). `Notice`/`Complaint`
+  재사용분도 다시 2.7%대 유지 — 원칙(검증된 단어 교차업계 재사용)의
+  세 번째 확인.
