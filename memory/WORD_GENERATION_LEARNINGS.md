@@ -1600,3 +1600,31 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   흔한 패턴)라는 점이 원칙 1의 "실제 검색 쿼리 패턴" 기준과 강하게
   부합 — Test/Exam(원칙 재정의판)과 같은 "초범용 콘텐츠 형식" 계열로
   분류할 수 있다.
+
+### QA-20260829-165706-KST (2026-08-29, `final-qa-runner`의 qa-mode 스모크
+회귀 실행 — round-size=50, 새 업계 `car_wash_detailing_services` 도메인어
+22개 + 신규 기능어 10개(Readout/Validation/Verdict/Lookup/Ping/Roundup/
+Model/Lot/Availability/Eligibility))
+- **맥락**: 이 라운드는 새 데이터 확보가 목적인 production 라운드가 아니라
+  QA 회귀 검증이다 — 직전 10라운드 production 세션이 단어뱅크를 크게
+  소진시켜 qa 스모크(round-size 20)조차 조합공간 0으로 시작해
+  `expand_word_bank`가 트리거됐다. 제안 전 `word_bank.py`+
+  `config/word_bank_expansions.csv` 전체를 grep으로 교차 확인해 중복 제안을
+  피했다(원칙 6 절차 준수).
+- **결과**: 신규생성 50개, AI승인 42개(84.0%, review_titles가 8개를
+  거절 — 형용사/명사 중의성 2건, 의미 불명 조합 4건, 실제 상표 유사 1건
+  (`Freon`, 원칙 3과 일치), 이중 의미 1건), KP게이트 조회 42개 중 13개만
+  `success`(29개는 `api_status=failed`=NULL, 원칙상 항상 탈락) — **KP통과
+  0개**.
+- **표본 부족 — 원칙 승격/하위 관측 근거로 쓰지 말 것**: 신규 기능어 10개가
+  전부 1회씩만 시도됐다(각 기능어당 attempts=1, 승격 기준인 수백 회와는
+  비교가 안 됨) — 아무 결론도 도출하지 않는다. 다만 `Inspection Model`
+  (competition_index=0.0, avg_monthly_searches=20)이 검색량 임계값(1,000)
+  미달로 정확히 탈락한 사례가 나와, avg_monthly_searches 게이트가 실측
+  라이브 트래픽에서도 올바르게 작동함을 재확인했다(회귀 테스트와 별개의
+  실측 확인).
+- **다음 production 라운드를 위한 메모**: `car_wash_detailing_services`
+  도메인어 22개와 위 기능어 10개는 이번에 처음 등록됐을 뿐 실측 표본이
+  거의 없다 — 다음 대량 라운드에서 이 신규 단어들이 실제로 여러 도메인어와
+  조합되며 통계적으로 유의미한 통과율이 쌓이면 그때 원칙 후보 여부를
+  판단할 것.

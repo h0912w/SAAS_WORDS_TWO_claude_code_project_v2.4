@@ -1,5 +1,38 @@
 # ACTIVE ISSUES
 
+## DATA-001 — ledger에 역순 중복 1건 잔존(`Grid Terminal`/`Terminal Grid`), 현재 코드로는 재현 불가한 과거 유물
+- 상태: OPEN(낮은 우선순위 — 데이터 정리만 필요, 코드 결함 아님)
+- 발견: 2026-08-29, `final-qa-runner`가 QA-20260829-165706-KST 스모크 회귀 중
+  `output/deliverables/history/generated_candidates.csv`(당시 250,358행) 전체를
+  정확/대소문자/역순 중복 기준으로 스캔해 발견. 유일한 위반 사례:
+  - `Grid Terminal` (industry=energy_utilities, ai_approved=False, judged_at
+    2026-08-18T07:43:20+09:00)
+  - `Terminal Grid` (industry 빈칸, ai_approved=True, judged_at
+    2026-08-17T23:06:14+09:00)
+  둘 다 이번 QA 세션이 시작(2026-08-29)하기 10일 이상 전, 자가확장 단어뱅크
+  도입 직후(2026-08-17~18) 생성된 행이다 — 이번 QA가 만든 게 아니다.
+- 원인 추정: `Grid`/`Terminal` 둘 다 특정 업계 도메인어(각각 energy_utilities/
+  transportation)이면서 동시에 범용 기능어 목록에도 있는 "이중 역할" 단어라,
+  `Terminal`(도메인)+`Grid`(기능) = "Terminal Grid"가 먼저 ledger에 들어간
+  뒤 다음날 `Grid`(도메인)+`Terminal`(기능) = "Grid Terminal"이 생성됐다.
+  당시(08-17/18) `_excluded_normalized`가 ledger 전체를 정확히 로드하지
+  못했거나 역순중복 로직이 아직 지금 형태로 다듬어지기 전이었을 가능성이
+  높다.
+- **현재 코드는 이 클래스의 버그를 재현하지 않음을 직접 검증**: `Terminal
+  Grid`를 exclude 집합에 넣고 `word_generation.generate_combinations(...,
+  domain_words={"energy_utilities": ["Grid"]}, function_words=["Terminal"])`를
+  호출하면 결과가 빈 리스트 — `reverse_normalized_title` 기반 역순 차단이
+  두 단어의 도메인/기능 이중 역할과 무관하게 정상 동작한다(2026-08-29
+  라이브 확인). `qa/regression/REQUIRED_CASES.md`의 역순 중복 케이스도
+  `tests/test_regression_required_cases.py::
+  test_history_exact_case_and_reverse_duplicates_rejected`로 커버되어 이번
+  pytest 144개 전체 통과에 포함됨.
+- 남은 작업(후속 세션): ledger·캐시·통과표에서 이 1건(정확히 어느 쪽을
+  남길지 — `Terminal Grid`가 먼저 생성됐고 backlog/KP 처리 이력이 있을 수
+  있으니 실제 영향(§4 4개 문서에 이 페어가 몇 군데 더 등장하는지)을 먼저
+  확인한 뒤) 정리하는 일회성 데이터 정합 패치. 코드 수정은 불필요 — 위
+  라이브 검증대로 생성 단계 차단은 이미 정상.
+
 ## PROJECT-002 — 2026-08-18 두 번째 프로젝트 정의 전환: "정확히 500개" 폐기 + 수요/공급 완전 삭제
 - 상태: RESOLVED(사용자 확정, CLAUDE.md §1에 최종 반영)
 - 배경: `--round-size 10000` 대량 배치를 여러 번 실제 실행(GKP-001 참고)한 결과,
