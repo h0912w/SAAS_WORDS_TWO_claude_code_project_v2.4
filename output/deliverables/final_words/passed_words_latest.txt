@@ -432,6 +432,9 @@ Cover Flow
 Cover Ops
 Cover Proposal
 Coverage Calculator
+Craft Advisory
+Craft Calculator
+Craft Engine
 Crate Hub
 Crate View
 Creative Core
@@ -495,6 +498,7 @@ Detention Charge
 Diagnosis Ticket
 Dialect Journal
 Dialect Map
+Diaper Report
 Diet Portal
 Discharge Agreement
 Discharge Form
@@ -1021,6 +1025,9 @@ Mortise View
 Move Link
 Move Reminder
 Move Rule
+Nap Portal
+Nap Register
+Nap Score
 Negligence Duty
 Neighborhood Code
 Neighborhood Draft
@@ -1071,6 +1078,8 @@ Order Total
 Outage Detector
 Outage Finder
 Outage Tracker
+Outdoor Card
+Outdoor Ticket
 Overnight Rate
 Overtime Rate
 Package File
@@ -1139,6 +1148,7 @@ Placement Log
 Placement Portal
 Placement Result
 Playground Map
+Playtime Field
 Policy Guide
 Policy Lab
 Policy Memo
@@ -1165,6 +1175,7 @@ Premium Hub
 Premium Nexus
 Premium Portal
 Premium Version
+Preschool Trial
 Prescription Charge
 Prescription Fee
 Pricing Detail
@@ -1485,6 +1496,7 @@ Showing Scale
 Showing Slip
 Shuttle Code
 Shuttle Table
+Sibling Number
 Sidewalk Rule
 Smoke Chain
 Smoke Forecast
@@ -1496,6 +1508,7 @@ Smoke Station
 Smoke Tax
 Smoke Token
 Smoke Tracker
+Snack Code
 Snow Advisory
 Snow Calculator
 Snow Level
