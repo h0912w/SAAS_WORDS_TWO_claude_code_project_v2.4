@@ -1,6 +1,6 @@
 {
-  "status": "COMMITTED_LOCAL",
-  "local_sha": "8278f2a9b656d38a5997d8faefc6ea2be7e02ccc",
-  "remote_sha": null,
-  "checked_at": "2026-08-29T14:27:25.708661+09:00"
+  "status": "DONE",
+  "local_sha": "3bf41650ee42e1c97a49e4a7f073dba3df221327",
+  "remote_sha": "3bf41650ee42e1c97a49e4a7f073dba3df221327",
+  "checked_at": "2026-08-29T14:28:44.013325+09:00"
 }

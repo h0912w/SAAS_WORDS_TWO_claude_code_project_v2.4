@@ -39,6 +39,8 @@ Alumni Card
 Alumni Portal
 Amendment Bill
 Amenity Fee
+Anesthesia Stage
+Anesthesia Tab
 Annuity Due
 Application Category
 Application Copy
@@ -162,6 +164,7 @@ Bonus Estimator
 Bonus Tax
 Booking Notification
 Booking Progress
+Braces Score
 Brake Diagram
 Brake Engine
 Brake Rail
@@ -327,6 +330,7 @@ Classroom Log
 Classroom Note
 Classroom Notification
 Clause Sample
+Cleaning Status
 Client Atlas
 Client Code
 Client List
@@ -431,6 +435,7 @@ Crop Cash
 Crop Label
 Crop Loan
 Crop Marker
+Crown Lab
 Curb Line
 Curriculum Guide
 Curriculum Hub
@@ -631,6 +636,10 @@ Filing Number
 Filing Radar
 Filing Report
 Filing Status
+Filling Frame
+Filling Report
+Filling Slot
+Filling Status
 Filter Card
 Filter Diagram
 Filter Template
@@ -727,6 +736,8 @@ Grievance Portal
 Grievance Register
 Grievance Status
 Guest Profile
+Gum History
+Gum Line
 Hallway Monitor
 Harvest File
 Harvest Index
@@ -770,6 +781,8 @@ Impact Frame
 Impact Lab
 Impact Point
 Impact Statement
+Implant Code
+Implant Diagram
 Incident Charge
 Incident Map
 Incident Proposal
@@ -967,6 +980,10 @@ Mileage Recorder
 Minor Note
 Minor Report
 Minor Scale
+Molar Calculator
+Molar Level
+Molar Unit
+Molar Volume
 Monitoring Check
 Monitoring Diagram
 Monitoring Scale
@@ -1374,6 +1391,8 @@ Season Fine
 Season List
 Season Office
 Season Order
+Sedation Level
+Sedation Score
 Segment Circular
 Segment Code
 Seller Message
