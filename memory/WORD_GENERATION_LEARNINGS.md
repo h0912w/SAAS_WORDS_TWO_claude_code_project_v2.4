@@ -1497,3 +1497,16 @@ candidate; 최소 반복 근거와 QA를 통과해야 validated로 승격한다"
   기회비용만 발생. 대규모 review_titles 위임 시 "지시된 3개 기준 밖의
   모호함"으로 거절하지 않는지, 특히 이미 실측으로 검증된 상위권
   기능어가 섞여 있는지 사전에 명시적으로 주의를 줄 필요가 있다.
+
+### RUN-20260829-142847-KST (2026-08-29, dental 도메인어 20개만 — 기능어 고정)
+- **제안**: 기능어 추가 없음 — dental에 일상 증상/시술 어휘 20개(Toothache,
+  Cavity, Filling, Crown, Braces, Whitening, Flossing, Gum, Molar,
+  Enamel, Extraction, Retainer, Veneer, Plaque, Cleaning, Sedation,
+  Anesthesia, Denture, Implant, Orthodontics).
+- **결과**: 신규생성 4,374개, AI승인 4,194개(95.9%, 정상), KP통과 19개
+  → 통과율 0.43%(직전 0.71% 대비 -38.9%, `declining`). 개별 단어 전부
+  0~1.72%로 약함(최고 Filling/Molar 1.72%, 9개는 0%) — automotive
+  라운드와 비슷하게 이번에도 "일상어"라는 조건만으로는 상위권 진입에
+  못 미쳤다. 원칙 13의 "일상어 vs 전문용어" 축은 완전 실패는
+  막아주지만(전멸은 아님) 상위권을 보장하지는 않는다는 관측을 dental
+  에서도 재확인 — 새 원칙 승격 없음, 기존 관측 재확인 수준으로만 기록.

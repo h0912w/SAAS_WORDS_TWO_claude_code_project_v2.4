@@ -4467,7 +4467,7 @@
   "created_at": "2026-08-29T14:28:47.411611+09:00",
   "mode": "production",
   "run_id": "RUN-20260829-142847-KST",
-  "stage": "generate_and_review_titles",
-  "status": "RUNNING",
-  "updated_at": "2026-08-29T14:44:32.417597+09:00"
+  "stage": "update_memory_and_git_checkpoint",
+  "status": "DONE",
+  "updated_at": "2026-08-29T14:44:40.849333+09:00"
 }
