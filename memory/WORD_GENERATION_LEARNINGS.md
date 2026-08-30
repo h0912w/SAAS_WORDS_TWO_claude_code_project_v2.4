@@ -1628,3 +1628,45 @@ Model/Lot/Availability/Eligibility))
   거의 없다 — 다음 대량 라운드에서 이 신규 단어들이 실제로 여러 도메인어와
   조합되며 통계적으로 유의미한 통과율이 쌓이면 그때 원칙 후보 여부를
   판단할 것.
+
+### RUN-20260831-003853-KST (2026-08-31, 도메인어 7개 + 기능어 6개 신규 —
+사용자 지시로 10라운드 배치 재개 중 3라운드째 소진 발생)
+- **맥락**: RUN-20260830-232535-KST(round-size 10000, 통과율 0.54%)와
+  RUN-20260831-001437-KST(잔여 4,148개 소진, 통과율 0.48%)를 연속 실행한 뒤
+  단어뱅크가 완전히 소진돼 `expand_word_bank`가 열렸다. 제안 전 전체
+  업계 도메인어 목록 + 기능어 249개 + 은퇴 목록 76개를 코드로 교차 검색해
+  실수 방지(원칙 6) — 최초 후보 중 5개(Referral/Budget/Guest/Menu/Chemical)가
+  이미 다른 업계에 도메인어로 존재해 제외하고 최종 13개만 제안했다: 도메인어
+  7개(photography_services: Highlight/Slideshow/Export/Testimonial,
+  wedding_planning_services: Playlist, pool_maintenance_services:
+  Valve/Backyard) + 기능어 6개(Broadcast/Barcode/Waitlist/Appointment/
+  Feedback/Invoice — 소통·식별·대기열·예약·의견수집·청구서라는 서로 겹치지
+  않는 6개 기능을 각각 대표하도록 설계, 원칙 4 준수).
+- **결과**: 신규생성 7,004개, AI승인 6,607개(94.3%), KP통과 42개 →
+  통과율 0.60%. 신규 단어 개별 통과율(attempts 200회+ 확보):
+  - 기능어: **Barcode 1.66%(14/841, 신규 중 최고)**, Feedback 1.04%(9/867),
+    Appointment 0.46%(4/870), Broadcast/Invoice 각 0.11%(1/87x),
+    **Waitlist 0%(0/854, 즉시 은퇴 확정)**.
+  - 도메인어: **Valve 2.36%(5/212, pool_maintenance_services)**, Highlight
+    1.38%(3/217, photography_services), Testimonial 1.02%(2/197), Export
+    0.98%(2/205), Playlist 0.47%(1/215), Slideshow/Backyard 각 0%(0/21x).
+- **`tools/analyze_word_performance.py --apply-retirement` 재실행 결과(중요)**:
+  Waitlist 외에도 그동안 300+ 시도가 누적된 기존 "핵심 10종 그리드" 기능어
+  (QA-20260829-165706-KST에서 도입된 Readout/Validation/Verdict/Lookup/
+  Ping/Roundup/Model/Lot/Availability/Eligibility) 중 **Readout/Roundup/
+  Verdict/Lot 4개와 Endowment 1개가 이번에 신규 은퇴 확정**됐다(누적 82개).
+  이 4개는 이번 3라운드(생성 21,152개) 동안 거의 모든 도메인어와 짝지어지며
+  후보 물량의 상당 부분을 차지했던 단어들이라, 다음 라운드부터는 이 그리드가
+  6종(Validation/Lookup/Ping/Availability/Eligibility 등 생존분)으로 줄어
+  후보 구성이 달라진다 — 물량 감소 자체를 정체 신호로 오판하지 말 것.
+- **해석(candidate, 첫 관측)**: Barcode(물리적으로 스캔 가능한 식별 코드)가
+  원칙 7("구체적 식별/정보 대상")의 하위 범주로서 강한 첫 성적을 냈다 —
+  Number/Code/Identifier 같은 추상 식별자보다 더 구체적인 "실물에 붙는
+  추적 코드"라는 성질이 통과율에 유리했을 가능성. Valve(풀 관리 장비
+  명사)는 원칙 13의 반대 방향("이미 검증된 업계에 흔한 실물 명사를
+  추가하면 잘 된다")과 일치하는 사례. Waitlist(대기자 명단)는 즉시
+  실패해 원칙 8/9와 유사한 새 하위 실패군("사람의 대기 상태를 가리키는
+  추상 개념"?)일 가능성이 있으나 1건뿐이라 판단 보류. **승격 조건**: 위
+  세 관측 모두 아직 1회뿐 — 다음 `expand_word_bank`에서 Barcode 인접어
+  (예: QR 코드류, 다만 상표 주의) 또는 Valve류 실물 장비 명사를 독립적으로
+  한 번 더 시험해 재현되면 `candidate`로 정식 등재.
