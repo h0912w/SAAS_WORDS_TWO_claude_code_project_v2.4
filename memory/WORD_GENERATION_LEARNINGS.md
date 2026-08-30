@@ -1749,3 +1749,39 @@ Model/Lot/Availability/Eligibility))
   `validated`로 승격해 향후 제안 금지 목록에 추가. (2) Formula류
   "흔한 육아/가정 소비재 명사"를 다른 업계(예: senior_care, pet
   용품)에서 한 번 더 재현하면 candidate로 등재.
+
+### RUN-20260831-034401-KST (2026-08-31, 도메인어 5개 + 기능어 6개 신규 —
+사용자 지시로 6라운드에서 세션 종료하기로 한 마지막 라운드)
+- **맥락**: 직전 확장분도 1라운드(7,761개) 만에 소진돼 마지막으로
+  `expand_word_bank`. 도메인어 5개(senior_care: Walker/Wheelchair/Cane/
+  Mobility — 직전 라운드 Formula의 "흔한 돌봄 소비재/보조기구" 방향을
+  독립 업계에서 재시도, food_service: Waiter) + 기능어 6개(Revision/
+  Refill/Payment/Inspection/Verification/Diagnosis — 정정/보충/결제/
+  점검/확인/진단이라는 서로 겹치지 않는 6개 개념)를 제안.
+- **결과**: 신규생성 6,609개, AI승인 5,941개(89.9%), KP통과 41개 →
+  통과율 0.62%. 신규 단어 개별 통과율(attempts 640회+/220회+ 확보):
+  - 기능어: **Payment 2.41%(21/873, 이번 세션 신규 기능어 전체 1위 —
+    Quote 2.06%·Barcode 1.66%를 앞지름)**, Verification 1.40%(9/643),
+    Revision 0.44%(4/910), **Refill/Inspection/Diagnosis 3개 0%(각
+    760회+, 즉시 은퇴 확정)**.
+  - 도메인어: Cane 1.34%(3/224), Walker 1.29%(3/232), Wheelchair
+    0.44%(1/228), **Mobility/Waiter 0%(각 220회+)**.
+- **`--apply-retirement` 결과**: 위 3개 신규 은퇴로 누적 92개.
+- **해석(중요, 이번 세션 마지막 관측)**: (1) `Payment`가 원칙 1의
+  "보편 거래 명사" 계열에서 Quote/Fee/Cost/Tax/Charge를 잇는 또 하나의
+  강한 사례로 확인됐다 — 이 계열은 세션 전체에서 가장 안정적으로
+  반복 재현되는 성공 패턴이었다. `Inspection`/`Diagnosis`처럼 "전문적
+  점검/진단" 개념은 표면적으로 Payment/Quote와 같은 "보편적으로 쓰이는
+  동사성 명사"처럼 보이지만 실제 검색 수요로 이어지지 않았다 — 원칙
+  1의 "실제 검색 쿼리 패턴"과 "전문 용어 vs 일상 거래어"의 구분이
+  이번에도 갈랐다. (2) Formula(육아용품)의 성공이 Walker/Wheelchair/
+  Cane(돌봄용품)에서는 훨씬 약하게만 재현됐다(1%대 vs 7%) — "흔한
+  소비재"라는 조건은 필요하지만, Formula처럼 **전세계 모든 부모가
+  거의 매일 검색하는 최상위 빈도 소비재**와 Walker/Cane처럼 **특정
+  연령층만 필요로 하는 의료보조기구**는 검색 저변 자체가 다르다는
+  게 더 정확한 설명으로 보인다 — Formula의 성공을 "senior_care/pet
+  용품에 재현"보다 "전세계 초고빈도 생활 소비재"라는 더 좁은 조건으로
+  다음에 재시도할 것을 권장. `Mobility`(추상 개념어로 제안했던 게
+  실수 — Walker/Cane 같은 구체명사와 달리 카테고리 이름이라 개별
+  SaaS로 연상되지 않음)와 `Waiter`(food_service의 Server 0.41%와
+  거의 같은 개념으로 재확인된 약한 재현) 둘 다 완전 실패.
